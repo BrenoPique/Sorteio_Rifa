@@ -67,6 +67,7 @@
 
 .sorteio input {
   width: 23.3%;
+  color: var(--preto);
 }
 
 .sorteio input::file-selector-button {
