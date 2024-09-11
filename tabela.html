@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Lista de Compradores</title>
+    <link rel="stylesheet" href="assets/css/style.css" />
+    <link rel="icon" href="assets/images/ticket.ico" />
+  </head>
+  <body class="compradores">
+    <header>
+      <h1>Lista de Compradores</h1>
+      <a href="index.html"><img src="assets/images/voltar.png" alt="" /></a>
+    </header>
+    <hr />
+
+    <!-- Tabela para exibir os nomes dos compradores e seus IDs de rifa -->
+    <table id="listaCompradores">
+      <thead>
+        <tr>
+          <th>ID da Rifa</th>
+          <th>Nome do Comprador</th>
+        </tr>
+      </thead>
+      <tbody>
+        <!-- As linhas da tabela serão adicionadas aqui pelo JavaScript -->
+      </tbody>
+    </table>
+
+    <script>
+      // Função para carregar os dados da tabela
+      function carregarTabela() {
+        const tabela = document.getElementById("listaCompradores");
+        const tbody = tabela.querySelector("tbody");
+        const rifas = JSON.parse(localStorage.getItem("rifas")) || [];
+
+        // Limpa as linhas antigas da tabela
+        tbody.innerHTML = "";
+
+        // Adiciona os compradores e IDs de rifa na tabela
+        rifas.forEach((rifa) => {
+          const linha = document.createElement("tr");
+
+          const celulaIdRifa = document.createElement("td");
+          celulaIdRifa.textContent = rifa.idRifa;
+
+          const celulaNomeComprador = document.createElement("td");
+          celulaNomeComprador.textContent = rifa.nomeComprador;
+
+          linha.appendChild(celulaIdRifa);
+          linha.appendChild(celulaNomeComprador);
+
+          tbody.appendChild(linha);
+        });
+      }
+
+      // Carrega a tabela quando a página é carregada
+      window.onload = carregarTabela;
+    </script>
+  </body>
+</html>
