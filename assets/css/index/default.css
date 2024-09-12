@@ -70,7 +70,7 @@
   color: var(--preto);
 }
 
-.sorteio input::file-selector-button {
+.custom-file-label {
   transition: all 0.5s ease-in-out;
   border-radius: 20px;
   box-shadow: inset 0 0 5px var(--preto);
@@ -87,12 +87,18 @@
   background-size: 300% 100%;
   color: var(--preto);
   font-weight: 600;
+  font-family: Arial;
+  font-size: 13px;
 }
 
-.sorteio input::file-selector-button:hover {
+.custom-file-label:hover {
   background-position: 100% 0;
   transition: all 0.5s ease-in-out;
   color: var(--branco);
+}
+
+input[type="file"] {
+  display: none;
 }
 
 .sorteio aside {
