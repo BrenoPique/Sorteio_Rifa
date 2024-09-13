@@ -18,14 +18,16 @@
   }
 
   & table {
-    width: 90%;
+    width: 70%;
     border-collapse: collapse;
     margin-bottom: 20px;
+    background-color: #f0f0f0;
+    border-radius: 20px;
+    overflow: hidden;
   }
-  & table,
-  th,
-  td {
-    border: 2px solid var(--azul);
+  & td {
+    color: var(--preto);
+    border: 1px solid var(--brancoEscuro);
   }
   & th,
   td {
@@ -34,6 +36,7 @@
     font-size: 20px;
   }
   & th {
-    color: #2cedff;
+    border: 1px solid var(--preto);
+    background-color: #000000;
   }
 }
