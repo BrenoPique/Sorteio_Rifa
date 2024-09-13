@@ -6,6 +6,7 @@
   --preto: #262626;
   --azul: rgba(49, 196, 190, 0.75);
   --box-shadow: 0px 0px 30px;
+  --brancoEscuro: rgba(114, 114, 114, 0.3);
 }
 
 * {
@@ -21,4 +22,29 @@ body {
   flex-flow: column;
   justify-content: center;
   align-items: center;
+  background-image: linear-gradient(
+      /*aqui*/ 0deg,
+      transparent 24%,
+      var(--brancoEscuro) 25%,
+      var(--brancoEscuro) 26%,
+      transparent 27%,
+      transparent 74%,
+      var(--brancoEscuro) 75%,
+      var(--brancoEscuro) 76%,
+      transparent 77%,
+      transparent
+    ),
+    linear-gradient(
+      90deg,
+      transparent 24%,
+      var(--brancoEscuro) 25%,
+      var(--brancoEscuro) 26%,
+      transparent 27%,
+      transparent 74%,
+      var(--brancoEscuro) 75%,
+      var(--brancoEscuro) 76%,
+      transparent 77%,
+      transparent
+    );
+  background-size: 55px 55px;
 }
