@@ -28,11 +28,21 @@ function handleFile(e) {
     for (let i = 1; i < jsonData.length; i++) {
       const idRifa = jsonData[i][0];
       const nomeComprador = jsonData[i][1];
-      const [compra, quantidade] = idRifa.split("-").map(Number);
 
-      // Cria uma rifa individual para cada quantidade comprada
-      for (let j = 1; j <= quantidade; j++) {
-        rifas.push({ idRifa: `${compra}-${j}`, nomeComprador });
+      // Converte o idRifa para string
+      const idRifaStr = String(idRifa);
+
+      if (idRifaStr.includes("-")) {
+        // Se o idRifa estiver no formato "compra-quantidade"
+        const [compra, quantidade] = idRifaStr.split("-").map(Number);
+
+        // Cria uma rifa individual para cada quantidade comprada
+        for (let j = 1; j <= quantidade; j++) {
+          rifas.push({ idRifa: `${compra}-${j}`, nomeComprador });
+        }
+      } else {
+        // Caso o idRifa seja apenas um número (sem "-")
+        rifas.push({ idRifa: `${idRifa}`, nomeComprador });
       }
     }
   };
@@ -95,3 +105,4 @@ function mostrarListaCompradores() {
 window.onload = function () {
   rifas = JSON.parse(localStorage.getItem("rifas")) || [];
 };
+  
